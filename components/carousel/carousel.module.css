@@ -13,9 +13,9 @@
 
 .cardWrapper {
   display: flex;
-  /* padding-top: 1rem; */
-  padding-bottom: 1rem;
-  /* margin-top: 0.75rem 24px; */
+  padding-top: 1.7rem;
+  padding-bottom: 1.5rem;
+  margin-top: 1.5rem /* 24px */;
   margin-right: 0.75rem /* 12px */;
   overflow-x: scroll;
   overflow-y: hidden;

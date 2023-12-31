@@ -4,23 +4,40 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
+
+
+
 
 const NavBar = (props) => {
+
   const { username } = props;
   const router = useRouter();
   const [showDropdown, setDropdown] = useState(false);
+
+  console.log("console context : ", props.context);
+
   const handleOnClickHome = (e) => {
     e.preventDefault();
     router.push("/");
   };
+
   const handleOnClickMyList = (e) => {
     e.preventDefault();
-    router.push("/browse/my-list ");
+    router.push("/browse/myList");
   };
+
+
   const handleShowDropdown = (e) => {
     e.preventDefault();
     setDropdown(!showDropdown);
   };
+
+  const handleSignoutBtn = () => signOut({
+    redirect: true,
+    callbackUrl: "/loginForm",
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -58,9 +75,12 @@ const NavBar = (props) => {
             {showDropdown && (
               <div className={styles.navDropdown}>
                 <div>
-                  <Link className={styles.linkName} href="/login">
+                  {/* <Link className={styles.linkName} href="/login">
                     Sign out
-                  </Link>
+                  </Link> */}
+                  <button className={styles.linkName} onClick={handleSignoutBtn}>
+                    Sign out
+                  </button>
                   <div className={styles.lineWrapper}></div>
                 </div>
               </div>

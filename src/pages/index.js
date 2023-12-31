@@ -1,35 +1,61 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 import Banner from "../../components/banner/banner.js";
 import NavBar from "./../../components/navbar/navbar.js";
 import Card from "./../../components/card/card";
 import Carousel from "../../components/carousel/carousel.js";
 import getVideos, { getPopularVideos } from "../../lib/videoData.js";
+import { getSession } from "next-auth/react";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  console.log("contextttttttttttt : ", context);
+
+  const session = await getSession(context);
+  
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: "/loginForm",
+  //       permanent: false,
+  //     },
+  //   };
+  // } else {
+  //   console.log("sessssisosns : ", session.user.name);
+  // }
+  const username = session.user.name;
+
   const animatedVideos = await getVideos("animated movie trailers", "animated");
   const bollywoodVideos = await getVideos("bollywood movie trailers", "bollywood");
   const hollywoodVideos = await getVideos("hollywood movie trailers", "hollywood");
   const popularVideos = await getPopularVideos();
   const kidsVideos = await getVideos("kids content", "kids");
 
-  // console.log("animated", {animatedVideos});
-  // console.log("bolly", {bollywoodVideos});
-  // console.log("holly", {hollywoodVideos});
-  // console.log("kids", {kidsVideos});
-
   return {
-    props: { animatedVideos, bollywoodVideos, hollywoodVideos, kidsVideos, popularVideos }, // will be passed to the page component as props
+    props: {
+      animatedVideos,
+      bollywoodVideos,
+      hollywoodVideos,
+      kidsVideos,
+      popularVideos,
+      username,
+    },
   };
 }
 
 export default function Home(initialProps) {
-
-  const { animatedVideos, bollywoodVideos, hollywoodVideos, kidsVideos, popularVideos } = initialProps;
+  const {
+    animatedVideos,
+    bollywoodVideos,
+    hollywoodVideos,
+    kidsVideos,
+    popularVideos,
+    username,
+  } = initialProps;
 
   return (
     <>
@@ -44,11 +70,12 @@ export default function Home(initialProps) {
       </Head>
 
       <div className={styles.main}>
-        <NavBar username="Soumojjal Sen" />
+        <NavBar username={username} />
         <Banner
+          videoId="hvaoXA3qw9s"
           title="Kungfu Panda"
           subTitle="The Dragon Warrior"
-          imgUrl="/static/kungfu-panda-4-stretched.webp"
+          imgUrl="/static/kungfu-panda.webp"
         />
         <div className={styles.sectionWrapper}>
           <Carousel

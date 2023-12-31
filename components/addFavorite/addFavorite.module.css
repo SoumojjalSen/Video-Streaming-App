@@ -1,0 +1,10 @@
+.icon {
+  width: 1rem;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .icon {
+    width: 1.5rem;
+  }
+}
