@@ -61,6 +61,7 @@ const NavBar = (props) => {
             My List
           </li>
         </ul>
+        <div className={styles.hamburger}></div>
         <nav className={styles.navContainer}>
           <div>
             <button className={styles.usernameBtn} onClick={handleShowDropdown}>

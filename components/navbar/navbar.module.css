@@ -53,6 +53,7 @@
 .navItem2 {
   font-weight: 500;
   cursor: pointer;
+  margin-right: 0.75rem /* 12px */;
 }
 
 .navContainer {
@@ -109,8 +110,8 @@
 }
 
 .lineWrapper {
-  padding-top: 0.5rem /* 8px */;
-  padding-bottom: 0.5rem /* 8px */;
+  /* padding-top: 0.5rem; */
+  /* padding-bottom: 0.5rem; */
 }
 
 @media (min-width: 768px) {

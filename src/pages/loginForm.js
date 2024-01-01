@@ -66,9 +66,8 @@ const Login = () => {
     } catch (error) {
       console.error("Error during sign in: ", error);
       setCorrectCredentialMsg("Error during sign in. Please try again.");
-        setIsLoading(false);
-
-    } 
+      setIsLoading(false);
+    }
   }, [email, password, router]);
 
   return (
@@ -95,7 +94,9 @@ const Login = () => {
       <main className={styles.main}>
         <div className={styles.mainWrapper}>
           <h1 className={styles.signinHeader}>Sign In</h1>
-          {correctCredentialMsg && <div>{correctCredentialMsg}</div>}
+          {correctCredentialMsg && (
+            <div className={styles.userErrorMsg}>{correctCredentialMsg}</div>
+          )}
           <input
             type="text"
             placeholder="Email address"
@@ -113,12 +114,14 @@ const Login = () => {
             {isLoading ? "Loading..." : "Sign In"}
           </button>
 
-          <p className={styles.signUpText}>
-            New to Netflix?{" "}
-            <Link href="/registerForm" className={styles.registerLink}>
-              Register now.
-            </Link>
-          </p>
+          <div className={styles.signUpCheck}>
+            <p className={styles.signUpText}>
+              New to Netflix?{" "}
+              <Link href="/registerForm" className={styles.registerLink}>
+                Register now.
+              </Link>
+            </p>
+          </div>
         </div>
       </main>
     </div>

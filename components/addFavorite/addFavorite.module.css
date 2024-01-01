@@ -1,10 +1,31 @@
+.container {
+  display: flex;
+
+}
+
+.addToListText {
+  margin-left: 9px;
+  font-size: 20px;
+}
+
 .icon {
-  width: 1rem;
+  width: 100%;
+  height: 100%;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.addToListWrapper {
+  height: 2rem;
+  width: 2rem;
+  border: 2px var(--white10) solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  border-radius: 50%;
 }
 
 @media (min-width: 1024px) {
-  .icon {
-    width: 1.5rem;
-  }
+  
 }

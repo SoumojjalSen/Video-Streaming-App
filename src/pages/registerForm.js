@@ -5,7 +5,7 @@ import styles from "../styles/Register.module.css";
 import { useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Link from 'next/link'
+import Link from "next/link";
 import emailValidate from "../../utils/emailValidate";
 
 const Login = () => {
@@ -20,7 +20,6 @@ const Login = () => {
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-  
   };
 
   const handleName = (e) => {
@@ -30,7 +29,6 @@ const Login = () => {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-
 
   const handleRegisterBtn = useCallback(async () => {
     try {
@@ -75,14 +73,16 @@ const Login = () => {
       <main className={styles.main}>
         <div className={styles.mainWrapper}>
           <h1 className={styles.signinHeader}>Register</h1>
-          {userRegisterMsg && <div>{userRegisterMsg}</div>}
+          {userRegisterMsg && (
+            <div className={styles.userErrorMsg}>{userRegisterMsg}</div>
+          )}
           <input
             id="name"
             type="text"
             placeholder="Username"
             value={name}
             onChange={handleName}
-            className={styles.emailInput}
+            className={styles.nameInput}
           />
           <input
             id="email"
@@ -96,7 +96,7 @@ const Login = () => {
           <input
             type="password"
             id="password"
-            className={styles.emailInput}
+            className={styles.passwordInput}
             placeholder="Password"
             value={password}
             onChange={handlePassword}
@@ -104,12 +104,14 @@ const Login = () => {
           <button onClick={handleRegisterBtn} className={styles.loginBtn}>
             {isLoading ? "Loading..." : "Sign Up"}
           </button>
-          <p className={styles.signUpText}>
-            Already have an account?{" "}
-            <Link href="/loginForm" className={styles.registerLink}>
-              Sign in now.
-            </Link>
-          </p>
+          <div className={styles.signUpCheck}>
+            <p className={styles.signUpText}>
+              Already have an account?{" "}
+              <Link href="/loginForm" className={styles.loginLink}>
+                Sign in now.
+              </Link>
+            </p>
+          </div>
         </div>
       </main>
     </div>

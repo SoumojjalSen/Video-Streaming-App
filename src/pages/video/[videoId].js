@@ -95,7 +95,8 @@ const Video = (initialProps) => {
         contentLabel="Example Modal"
         className={styles.modal}
         overlayClassName={styles.overlay}
-      >
+      > 
+      <div className="videoPlayerWrapper">
         <iframe
           id="player"
           type="text/html"
@@ -105,8 +106,7 @@ const Video = (initialProps) => {
           src={`http://www.youtube.com/embed/${router.query.videoId}?enablejsapi=1&origin=http://example.com&rel=0&fs=0`}
           frameborder="0"
         ></iframe>
-
-      
+      </div>
 
         <div className={styles.modalBody}>
           <div className={styles.modalBodyContent}>

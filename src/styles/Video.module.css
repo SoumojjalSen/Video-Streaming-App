@@ -8,7 +8,7 @@
   width: 800px;
   bottom: 40px;
   background-color: var(--black40);
-  top: 10%;
+  top: 18%;
 
   outline: none;
   border-radius: 10px;
@@ -35,21 +35,31 @@
 }
 
 /** Makes video edges curvy **/
+
+.videoPlayerWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .videoPlayer {
   border-radius: 10px 10px 0px 0px;
   composes: borderBoxShadow;
+  max-width: 800px;
+  width: 100%;
+
 }
 
 /** Modal body **/
 .modalBody {
   padding: 0 3rem;
+  margin-top: 1.4rem;
 }
 
 .modalBodyContent {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   column-gap: 2em;
-  padding-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
 .col1 {
@@ -73,7 +83,7 @@
 }
 
 .description {
-  margin-bottom: 0.5rem /* 8px */;
+  margin-bottom: 1.2rem /* 8px */;
   margin-top: 0.75rem /* 12px */;
 }
 

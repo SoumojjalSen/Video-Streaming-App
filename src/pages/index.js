@@ -75,7 +75,8 @@ export default function Home(initialProps) {
           videoId="hvaoXA3qw9s"
           title="Kungfu Panda"
           subTitle="The Dragon Warrior"
-          imgUrl="/static/kungfu-panda.webp"
+          // imgUrl="/static/kungfu-panda.webp"
+          imgUrl="https://i.ytimg.com/vi/hvaoXA3qw9s/maxresdefault.jpg"
         />
         <div className={styles.sectionWrapper}>
           <Carousel

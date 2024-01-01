@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useCallback, useMemo } from "react";
 import { PlusIcon, CheckIcon } from "@heroicons/react/24/outline";
-import styles from "./addFavorite.module.css"
+import styles from "./addFavorite.module.css";
 import useCurrentUser from "../../hooks/getCurrentUser";
 import useFavorites from "../../hooks/getFavoriteVideosId";
 
@@ -30,18 +30,18 @@ const FavoriteButton = ({ videoId }) => {
       ...currentUser,
       favoriteIds: updatedFavoriteIds,
     });
-    
+
     mutateFavorites();
   }, [videoId, isFavorite, currentUser, mutate, mutateFavorites]);
 
   const Icon = isFavorite ? CheckIcon : PlusIcon;
 
   return (
-    <div
-      onClick={toggleFavorites}
-      // className="cursor-pointer group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300"
-    >
-      <Icon className={styles.icon} />
+    <div className={styles.container}>
+      <div onClick={toggleFavorites} className={styles.addToListWrapper}>
+        <Icon className={styles.icon} />
+      </div>
+      <div className={styles.addToListText}>Add to list</div>
     </div>
   );
 };

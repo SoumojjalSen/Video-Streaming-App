@@ -20,7 +20,7 @@
   height: 100%; 
 
   flex-direction: column;
-  margin-top: 6rem /* 96px */;
+  margin-top: 10rem /* 96px */;
 }
 
 .nseriesWrapper {
