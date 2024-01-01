@@ -21,6 +21,16 @@
   overflow-y: hidden;
 }
 
+
+.myListImageLayout {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -41,5 +51,23 @@
   .container {
     padding-left: 4rem /* 64px */;
     padding-right: 4rem /* 64px */;
+  }
+}
+
+@media (min-width: 670px) {
+  .myListImageLayout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .myListImageLayout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .myListImageLayout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

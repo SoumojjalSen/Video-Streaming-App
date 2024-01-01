@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./navbar.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
-
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 
@@ -38,6 +38,13 @@ const NavBar = (props) => {
     callbackUrl: "/loginForm",
   });
 
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const toggleMobileMenu = useCallback(() => {
+    setShowMobileMenu((current) => !current);
+  }, []);
+
+
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -57,11 +64,36 @@ const NavBar = (props) => {
             Home
           </li>
           {/* anything onclick provides gets automatically passed on to the function */}
-          <li className={styles.navItem2} onClick={handleOnClickMyList} key="myList">
+          <li
+            className={styles.navItem2}
+            onClick={handleOnClickMyList}
+            key="myList"
+          >
             My List
           </li>
         </ul>
-        <div className={styles.hamburger}></div>
+        <div className={styles.mobileMenuContainer}>
+        <div className={styles.hamburgerWrapper}>
+          <GiHamburgerMenu
+            className={styles.hamburger}
+            onClick={toggleMobileMenu}
+          />
+        </div>
+        {showMobileMenu && (
+          <div className={styles.mobileMenuDropdown}>
+            <div>
+              <button className={styles.linkName} onClick={handleOnClickHome}>
+                Home
+              </button>
+              <hr></hr>
+              <button className={styles.linkName} onClick={handleOnClickMyList}>
+                My List
+              </button>
+
+            </div>
+          </div>
+        )}
+        </div>
         <nav className={styles.navContainer}>
           <div>
             <button className={styles.usernameBtn} onClick={handleShowDropdown}>
@@ -79,7 +111,10 @@ const NavBar = (props) => {
                   {/* <Link className={styles.linkName} href="/login">
                     Sign out
                   </Link> */}
-                  <button className={styles.linkName} onClick={handleSignoutBtn}>
+                  <button
+                    className={styles.linkName}
+                    onClick={handleSignoutBtn}
+                  >
                     Sign out
                   </button>
                   <div className={styles.lineWrapper}></div>

@@ -11,7 +11,7 @@ const Carousel = (props) => {
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{title}</h2> {/* Animated movies */}
-      <div className={classNames(styles.cardWrapper, shouldWrap && styles.wrap)}>
+      <div className={classNames(!shouldWrap && styles.cardWrapper, shouldWrap && styles.wrap, shouldWrap && styles.myListImageLayout)}>
         {videos.map((video, idx) => {
           return(
             <Link href={`/video/${video.id}`}>

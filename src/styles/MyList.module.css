@@ -1,4 +1,6 @@
 .main {
+  display: flex;
+  justify-content: center;
   padding-bottom: 4rem /* 64px */;
   margin-top: 6rem /* 96px */;
 }

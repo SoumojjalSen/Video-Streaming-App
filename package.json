@@ -24,6 +24,7 @@
     "nextjs-progressbar": "^0.0.16",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^4.12.0",
     "react-modal": "^3.16.1",
     "swr": "^2.2.4"
   },

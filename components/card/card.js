@@ -35,7 +35,11 @@ const Card = (props) => {
   return (
     <div className={styles.container}>
       <motion.div
-        className={classNames(classMap[size], styles.imgMotionWrapper)}
+        className={classNames(
+          classMap[size],
+          styles.imgMotionWrapper,
+          !shouldScale && styles.imgPosition
+        )}
         {...shouldHover}
       >
         <Image

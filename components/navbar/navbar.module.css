@@ -2,12 +2,20 @@
   color: var(--white10);
   position: fixed;
   top: 0px;
-  background-image: linear-gradient(to bottom, var(--gradient-stops)); 
+  background-image: linear-gradient(to bottom, var(--gradient-stops));
   /* Adds a linear drop shadow type effect */
   --gradient-from: var(--black);
   --gradient-stops: var(--gradient-from), var(--gradient-to, rgba(0, 0, 0, 0));
   width: 100%;
   z-index: 50;
+}
+
+.hamburgerWrapper {
+}
+.hamburger {
+  height: 1.55rem;
+  width: 3.8rem;
+  display: none;
 }
 
 .wrapper {
@@ -76,7 +84,25 @@
 .navDropdown {
   position: absolute;
   margin-left: auto;
-  margin-top: 0.5rem /* 8px */;
+  margin-top: 0.25rem /* 8px */;
+  padding-top: 0.5rem /* 8px */;
+  padding-bottom: 0.5rem /* 8px */;
+  padding-right: 0.5rem;
+  background-color: var(--black50);
+  border-width: 1px;
+  color: var(--white);
+  border-radius: 0.25rem /* 4px */;
+
+  border-color: var(--blue);
+
+  box-shadow: var(--shadow30, 0 0 #0000), var(--ring-shadow, 0 0 #0000),
+    var(--shadow30);
+}
+
+.mobileMenuDropdown {
+  position: absolute;
+  margin-left: auto;
+  margin-top: 1.75rem /* 8px */;
   padding-top: 0.5rem /* 8px */;
   padding-bottom: 0.5rem /* 8px */;
   padding-right: 0.5rem;
@@ -92,6 +118,22 @@
 }
 
 .linkName {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  display: block;
+  padding-left: 0.5rem /* 8px */;
+  padding-right: 0.5rem /* 8px */;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+
+  font-size: 1rem /* 16px */;
+  line-height: 1.25rem /* 20px */;
+  border-radius: 0.25rem /* 4px */;
+  cursor: pointer;
+}
+
+.mobileMenu {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
@@ -114,6 +156,33 @@
   /* padding-bottom: 0.5rem; */
 }
 
+@media (max-width: 490px) {
+  .hamburger {
+    display: flex;
+    transition-property: background-color, border-color, color, fill, stroke,
+      opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  .navItems {
+    display: none;
+  }
+  .hamburgerWrapper {
+    width: 100%;
+    display: flex;
+    position: flex;
+    justify-content: flex-end;
+    padding-right: 0.75rem;
+  }
+
+  .mobileMenuContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 @media (min-width: 768px) {
   .wrapper {
     padding-left: 4rem /* 64px */;
@@ -133,4 +202,8 @@
   .navItem {
     margin-right: 1.25rem /* 20px */;
   }
+  /* 
+  .hamburger {
+    margin-top: 4px;
+  } */
 }

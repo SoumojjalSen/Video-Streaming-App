@@ -35,6 +35,11 @@
   cursor: pointer;
 }
 
+.imgPosition {
+  margin: 0.5rem;
+
+}
+
 .cardImg {
   top: 0px;
   right: 0px;
