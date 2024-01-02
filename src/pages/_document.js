@@ -10,6 +10,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       </Head>
       <body>
         <Main />
