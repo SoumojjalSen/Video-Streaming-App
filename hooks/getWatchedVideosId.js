@@ -12,8 +12,6 @@ const getWatchAgainVideosId = () => {
     }
   );
 
-  console.log("Watch Again :: ", data);
-
   return {
     data,
     error,

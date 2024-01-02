@@ -10,15 +10,10 @@ export async function getServerSideProps(context) {
 
   const { currentUser } = await serverAuth(context.req, context.res);
 
-  console.log("bitch", currentUser);
-
   const session = await getSession(context);
 
-  console.log(session);
   const username = session.user.name;
   const videoIds = currentUser.favoriteIds;
-
-  console.log("doraemon", videoIds);
 
   const videos =
     videoIds?.map((videoId) => {

@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "../styles/Login.module.css";
 import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/router";
-
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import emailValidate from "../../utils/emailValidate";
@@ -13,7 +12,6 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [email, setEmail] = useState("");
-  // const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [correctCredentialMsg, setCorrectCredentialMsg] = useState(null);
 
@@ -21,7 +19,6 @@ const Login = () => {
 
   const handleOnChangeEmail = (e) => {
     e.preventDefault();
-    // console.log("eventtttt", e);
     const email = e.target.value;
     setEmail(email);
   };
@@ -54,8 +51,6 @@ const Login = () => {
         redirect: false,
         callbackUrl: "/",
       });
-
-      console.log("reeees : ", res);
 
       if (!res.ok) {
         setCorrectCredentialMsg(res.error);
