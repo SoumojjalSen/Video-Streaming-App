@@ -9,10 +9,6 @@ import prismadb from "../../../../lib/prismadb";
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prismadb),
   providers: [
-    // GoogleProvider({
-    //   clientId: process.env.GOOGLE_CLIENT_ID,
-    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    // }),
     CredentialsProvider({
       name: "credentials",
       credentials: {

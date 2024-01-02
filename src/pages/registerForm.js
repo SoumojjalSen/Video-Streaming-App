@@ -33,7 +33,7 @@ const Login = () => {
   const handleRegisterBtn = useCallback(async () => {
     try {
       setIsLoading(true);
-      await axios.post("/api/register", {
+      await axios.post("/apiRoute/register", {
         email,
         name,
         password,
