@@ -27,6 +27,11 @@ const NavBar = (props) => {
     router.push("/browse/myList");
   };
 
+  const handleOnClickWatchAgain = (e) => {
+    e.preventDefault();
+    router.push("/browse/watchAgain");
+  };
+
 
   const handleShowDropdown = (e) => {
     e.preventDefault();
@@ -71,6 +76,9 @@ const NavBar = (props) => {
           >
             My List
           </li>
+          <li className={styles.navItem3} onClick={handleOnClickWatchAgain} key="watchAgain">
+            Watch Again
+          </li>
         </ul>
         <div className={styles.mobileMenuContainer}>
         <div className={styles.hamburgerWrapper}>
@@ -85,9 +93,13 @@ const NavBar = (props) => {
               <button className={styles.linkName} onClick={handleOnClickHome}>
                 Home
               </button>
-              <hr></hr>
+              
               <button className={styles.linkName} onClick={handleOnClickMyList}>
                 My List
+              </button>
+
+              <button className={styles.linkName} onClick={handleOnClickWatchAgain}>
+                Watch Again
               </button>
 
             </div>
@@ -117,7 +129,6 @@ const NavBar = (props) => {
                   >
                     Sign out
                   </button>
-                  <div className={styles.lineWrapper}></div>
                 </div>
               </div>
             )}

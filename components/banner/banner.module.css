@@ -20,7 +20,7 @@
   height: 100%; 
 
   flex-direction: column;
-  margin-top: 10rem /* 96px */;
+  margin-top: 15rem /* 96px */;
 }
 
 .nseriesWrapper {
@@ -109,6 +109,10 @@
 }
 
 @media (min-width: 1024px) {
+  .left {
+    margin-top: 10rem;
+  }
+
   .title {
     font-size: 3.75rem /* 60px */;
     line-height: 1.25;
@@ -126,6 +130,10 @@
 }
 
 @media (max-width: 460px){
+  .left {
+    margin-top: 17rem;
+  }
+
   .title {
     font-size: 2rem /* 60px */;
     line-height: 1;

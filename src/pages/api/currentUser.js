@@ -5,7 +5,6 @@ import serverAuth from "../../../lib/serverAuth.js";
 
 export default async function handler(req, res) {
   try {
-    console.log("request", {req});
     if (req.method !== "GET") {
       return res.status(405).end();
     }

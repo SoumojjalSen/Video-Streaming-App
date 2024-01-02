@@ -13,7 +13,6 @@ import { getSession } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getServerSideProps(context) {
-  console.log("contextttttttttttt : ", context);
 
   const session = await getSession(context);
   
@@ -75,7 +74,6 @@ export default function Home(initialProps) {
           videoId="hvaoXA3qw9s"
           title="Kungfu Panda"
           subTitle="The Dragon Warrior"
-          // imgUrl="/static/kungfu-panda.webp"
           imgUrl="https://i.ytimg.com/vi/hvaoXA3qw9s/maxresdefault.jpg"
         />
         <div className={styles.sectionWrapper}>

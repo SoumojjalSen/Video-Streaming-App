@@ -21,6 +21,7 @@ model User {
   sessions Session[]
   accounts Account[]
   favoriteIds String[] 
+  watchAgainIds String[]
 }
 
 model Account {

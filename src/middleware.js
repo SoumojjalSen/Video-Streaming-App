@@ -8,7 +8,6 @@ export async function middleware(request) {
   // let response = NextResponse.next();
 
   let isLoggedIn = request.cookies.get("next-auth.session-token");
-  console.log("ius loggeddd in: ", isLoggedIn);
 
   if (isLoggedIn) {
     return NextResponse.next();

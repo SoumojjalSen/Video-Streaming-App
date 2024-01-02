@@ -1,5 +1,3 @@
-// Load only user favourite movies
-
 import serverAuth from "../../../lib/serverAuth.js";
 
 export default async function handler(req, res) {
@@ -10,9 +8,9 @@ export default async function handler(req, res) {
 
     const { currentUser } = await serverAuth(req, res);
 
-    const favoritedVideos = await currentUser.favoriteIds;
+    const watchedVideos = await currentUser.watchAgainIds;
 
-    return res.status(200).json(favoritedVideos);
+    return res.status(200).json(watchedVideos);
   } catch (error) {
     console.log(error);
     return res.status(500).end();

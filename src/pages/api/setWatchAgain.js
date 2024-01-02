@@ -11,33 +11,18 @@ export default async function handler(req, res) {
 
       const { videoId } = req.body;
 
-      const user = await prismadb.user.update({
-        where: {
-          email: currentUser.email || "",
-        },
-        data: {
-          favoriteIds: {
-            push: videoId,
-          },
-        },
-      });
+      const temp = without(currentUser.watchAgainIds, videoId);
+      temp.unshift(videoId);
+      const updatedWatchAgainIds = temp;
 
-      return res.status(200).json(user);
-    }
-
-    if (req.method === "DELETE") {
-      const { currentUser } = await serverAuth(req, res);
-
-      const { videoId } = req.body;
-
-      const updatedFavoriteIds = without(currentUser.favoriteIds, videoId);
+      console.log("Updated video ids ::: adfvas", {updatedWatchAgainIds});
 
       const updatedUser = await prismadb.user.update({
         where: {
           email: currentUser.email || "",
         },
         data: {
-          favoriteIds: updatedFavoriteIds,
+          watchAgainIds: updatedWatchAgainIds,
         },
       });
 
