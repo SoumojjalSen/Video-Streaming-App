@@ -1,16 +1,19 @@
+import { getSession } from "next-auth/react";
 import { NextResponse } from "next/server";
 
 
 // This function can be marked `async` if using `await` inside
-export async function middleware(request) {
-
-  // Given incoming request /homedb
-  // let response = NextResponse.next();
+export async function middleware(request, response) {
   
-  let isLoggedIn = request.cookies.get("next-auth.session-token");
-  console.log("ius loggeddd in: ", isLoggedIn);
+  // let isLoggedIn = request.cookies.get("next-auth.session-token");
+  // console.log("ius loggeddd in: ", isLoggedIn);
 
-  if (isLoggedIn) {
+  // const { currentUser } = await serverAuth(req, res);
+
+  const session = getSession(request);
+  console.log("the session is :::" , session);
+
+  if (session) {
     console.log("Namaste loggged in")
     return NextResponse.next();
   }
