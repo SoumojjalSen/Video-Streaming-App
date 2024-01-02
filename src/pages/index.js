@@ -9,23 +9,21 @@ import Carousel from "../../components/carousel/carousel.js";
 import getVideos, { getPopularVideos } from "../../lib/videoData.js";
 import { getSession } from "next-auth/react";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getServerSideProps(context) {
 
   const session = await getSession(context);
   
-  // if (!session) {
-  //   return {
-  //     redirect: {
-  //       destination: "/loginForm",
-  //       permanent: false,
-  //     },
-  //   };
-  // } else {
-  //   console.log("sessssisosns : ", session.user.name);
-  // }
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/loginForm",
+        permanent: false,
+      },
+    };
+  } 
+
   const username = session.user.name;
 
   const animatedVideos = await getVideos("animated movie trailers", "animated");

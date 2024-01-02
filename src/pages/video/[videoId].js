@@ -6,7 +6,6 @@ import classNames from "classnames";
 import { getYoutubeVideoById } from "../../../lib/videoData";
 import NavBar from "../../../components/navbar/navbar";
 import { getSession } from "next-auth/react";
-
 import FavoriteButton from "../../../components/addFavorite/addFavourite.js";
 
 Modal.setAppElement("#__next");
@@ -49,6 +48,17 @@ Modal.setAppElement("#__next");
 // }
 
 export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/loginForm",
+        permanent: false,
+      },
+    };
+  } 
+
   const videoId = context.params.videoId;
   const videoInfoArray = await getYoutubeVideoById(videoId);
 
@@ -56,7 +66,6 @@ export async function getServerSideProps(context) {
 
   console.log("nighttttt : ", context);
 
-  const session = await getSession(context);
 
   const username = session.user.name;
 

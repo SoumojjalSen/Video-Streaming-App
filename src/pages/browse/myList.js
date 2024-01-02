@@ -7,10 +7,19 @@ import NavBar from './../../../components/navbar/navbar';
 import Carousel from './../../../components/carousel/carousel';
 
 export async function getServerSideProps(context) {
+    
+  const session = await getSession(context);
+  
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/loginForm",
+        permanent: false,
+      },
+    };
+  } 
 
   const { currentUser } = await serverAuth(context.req, context.res);
-
-  const session = await getSession(context);
 
   const username = session.user.name;
   const videoIds = currentUser.favoriteIds;
