@@ -68,6 +68,10 @@
   min-width: 240px;
 }
 
+.registerLink {
+  margin-left: 6px;
+}
+
 .registerLink:hover {
   text-decoration: underline;
 }
@@ -115,6 +119,11 @@
 
 .signUpCheck {
   margin-top:1rem;
+}
+
+.signUpText {
+  display: flex;
+  justify-content: center;
 }
 
 .loginBtn {

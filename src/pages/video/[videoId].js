@@ -120,7 +120,7 @@ const Video = (initialProps) => {
             </div>
             <div className={styles.col2}>
               <p className={classNames(styles.subText, styles.subTextWrapper)}>
-                <span className={styles.textColor}>Cast: </span>
+                <span className={styles.textColor}>Channel: </span>
                 <span className={styles.channelTitle}>{channelTitle}</span>
               </p>
               <p className={classNames(styles.subText, styles.subTextWrapper)}>

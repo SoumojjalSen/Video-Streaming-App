@@ -21,5 +21,5 @@ export async function middleware(request) {
 
 // // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/video/:path*", "/", "/browse/myList"]
+  matcher: ["/video/:path*", "/", "/browse/:path*"],
 };
