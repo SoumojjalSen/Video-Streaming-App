@@ -23,7 +23,6 @@ export async function getServerSideProps(context) {
       };
     }) || [];
 
-    console.log("finaleeeee", videos);
   return {
     props: {
       videos,
