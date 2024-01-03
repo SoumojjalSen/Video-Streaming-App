@@ -135,14 +135,14 @@
   }
 
   .title {
-    font-size: 2rem /* 60px */;
+    font-size: 2.59rem /* 60px */;
     line-height: 1;
     margin-bottom: 1rem;
   }
 
   .subTitle {
-    font-size: 1rem /* 24px */;
-    line-height: 1rem /* 32px */;
+    font-size: 1.5rem /* 24px */;
+    line-height: 1.3rem /* 32px */;
   }
 
   .playText {

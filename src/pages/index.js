@@ -12,9 +12,8 @@ import { getSession } from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getServerSideProps(context) {
-
   const session = await getSession(context);
-  
+
   if (!session) {
     return {
       redirect: {
@@ -22,13 +21,19 @@ export async function getServerSideProps(context) {
         permanent: false,
       },
     };
-  } 
+  }
 
   const username = session.user.name;
 
   const animatedVideos = await getVideos("animated movie trailers", "animated");
-  const bollywoodVideos = await getVideos("bollywood movie trailers", "bollywood");
-  const hollywoodVideos = await getVideos("hollywood movie trailers", "hollywood");
+  const bollywoodVideos = await getVideos(
+    "bollywood movie trailers",
+    "bollywood"
+  );
+  const hollywoodVideos = await getVideos(
+    "hollywood movie trailers",
+    "hollywood"
+  );
   const popularVideos = await getPopularVideos();
   const kidsVideos = await getVideos("kids content", "kids");
 
@@ -82,7 +87,7 @@ export default function Home(initialProps) {
           />
           <Carousel title="Bollywood" videos={bollywoodVideos} size="medium" />
           <Carousel title="Hollywood" videos={hollywoodVideos} size="medium" />
-          <Carousel title="Popular" videos={popularVideos} size="small" />
+          <Carousel title="Trending now" videos={popularVideos} size="small" />
           <Carousel title="Kids" videos={kidsVideos} size="medium" />
         </div>
       </div>

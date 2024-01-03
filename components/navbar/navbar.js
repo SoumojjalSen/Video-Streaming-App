@@ -15,8 +15,6 @@ const NavBar = (props) => {
   const router = useRouter();
   const [showDropdown, setDropdown] = useState(false);
 
-  console.log("console context : ", props.context);
-
   const handleOnClickHome = (e) => {
     e.preventDefault();
     router.push("/");
