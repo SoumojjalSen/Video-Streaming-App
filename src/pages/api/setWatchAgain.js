@@ -7,15 +7,12 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
       const { currentUser } = await serverAuth(req, res);
 
-      console.log("Wow not logging in", currentUser);
-
       const { videoId } = req.body;
 
       const temp = without(currentUser.watchAgainIds, videoId);
       temp.unshift(videoId);
       const updatedWatchAgainIds = temp;
 
-      console.log("Updated video ids ::: adfvas", {updatedWatchAgainIds});
 
       const updatedUser = await prismadb.user.update({
         where: {

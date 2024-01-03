@@ -44,7 +44,7 @@ const Login = () => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      console.log("Hello new error", error.response.data.error);
+      console.error("Hello new error", error.response.data.error);
       setUserRegisterMsg(error.response.data.error);
     }
   }, [email, name, password]);

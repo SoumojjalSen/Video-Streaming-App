@@ -20,9 +20,6 @@ export async function getServerSideProps(context) {
   } 
   
   const { currentUser } = await serverAuth(context.req, context.res);
-
-  console.log("bitch", currentUser);
-  console.log(session);
   
   const username = session.user.name;
   const videoIds = currentUser.watchAgainIds;

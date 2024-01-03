@@ -150,3 +150,25 @@
     line-height: 1.75rem /* 28px */;
   }
 }
+
+@media (max-height: 495px) {
+  .left {
+    margin-top: 7rem;
+  }
+
+  .title {
+    font-size: 3rem /* 60px */;
+    line-height: 1.25;
+  }
+
+  .subTitle {
+    font-size: 1.5rem /* 24px */;
+    line-height: 2rem /* 32px */;
+  }
+
+  .playText {
+    font-size: 1.125rem /* 20px */;
+    line-height: 1.75rem /* 28px */;
+  }
+}
+
