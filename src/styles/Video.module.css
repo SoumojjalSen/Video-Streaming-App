@@ -1,15 +1,12 @@
 .modal {
   position: absolute;
-  /** centers modal **/
   left: 0;
   right: 0;
   margin: 0 auto;
-
   width: 800px;
   bottom: 40px;
   background-color: var(--black40);
   top: 18%;
-
   outline: none;
   border-radius: 10px;
   border: 1px solid var(--shadow10);
@@ -22,7 +19,6 @@
   bottom: 0;
 }
 
-/** gives box shadow to the video frame **/
 .borderBoxShadow {
   -webkit-box-shadow: 0 3px 7px var(--shadow20);
   -moz-box-shadow: 0 3px 7px var(--shadow20);
@@ -34,8 +30,6 @@
   background: linear-gradient(to top, var(--black10), transparent 50%);
 }
 
-/** Makes video edges curvy **/
-
 .videoPlayerWrapper {
   display: flex;
   justify-content: center;
@@ -46,10 +40,8 @@
   composes: borderBoxShadow;
   max-width: 800px;
   width: 100%;
-
 }
 
-/** Modal body **/
 .modalBody {
   padding: 0 3rem;
   margin-top: 1.4rem;
@@ -63,46 +55,46 @@
 }
 
 .col1 {
-  max-height: 50vh /* 208px */;
+  max-height: 50vh;
   overflow-y: hidden;
   overflow-y: scroll;
 }
 
 .publishTime {
-  font-size: 1.125rem /* 18px */;
-  line-height: 1.75rem /* 28px */;
-  margin-top: 1.5rem /* 24px */;
-  margin-bottom: 0.5rem /* 8px */;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
   color: var(--green10);
 }
 
 .text {
-  font-size: 1.125rem /* 18px */;
-  line-height: 1.75rem /* 28px */;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   color: var(--white10);
 }
 
 .description {
-  margin-bottom: 1.2rem /* 8px */;
-  margin-top: 0.75rem /* 12px */;
+  margin-bottom: 1.2rem;
+  margin-top: 0.75rem;
 }
 
 .col2 {
   color: var(--white10);
-  line-height: 1.75rem /* 28px */;
+  line-height: 1.75rem;
   display: flex;
   flex-direction: column;
 }
 
 .subText {
-  font-size: 0.875rem /* 14px */;
-  line-height: 1.25rem /* 20px */;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   margin-left: 0px;
   overflow-wrap: break-word;
 }
 
 .subTextWrapper {
-  margin-top: 1.5rem /* 24px */;
+  margin-top: 1.5rem;
 }
 
 .textColor {
@@ -120,29 +112,4 @@
     bottom: 40px;
     width: 50%;
   }
-}
-
-/** LikeDislike */
-
-.likeDislikeBtnWrapper {
-  display: flex;
-  margin-bottom: 0.75rem /* 12px */;
-  position: absolute;
-  top: 35%;
-  padding-left: 1rem /* 48px */;
-}
-
-.btnWrapper {
-  border-color: var(--white10);
-  border-style: solid;
-  border-width: 2px;
-  background-color: var(--gray40);
-  border-radius: 9999px;
-  padding: 0.5rem /* 8px */;
-  display: flex;
-  justify-content: center;
-}
-
-.likeBtnWrapper {
-  margin-right: 0.5rem /* 8px */;
 }
