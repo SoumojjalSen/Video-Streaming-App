@@ -8,7 +8,18 @@ export default async function handler(req, res) {
       return res.status(405).end();
     }
 
+    
     const { email, name, password } = req.body;
+    
+    if (!email){
+      return res.status(422).json({ error: "Enter an email id !" });
+    }
+    if (!name){
+      return res.status(422).json({ error: "Enter username !" });
+    }
+    if (!password){
+      return res.status(422).json({ error: "Enter a password !" });
+    }
 
     const existingUser = await prismadb.user.findUnique({
       where: {

@@ -24,8 +24,6 @@ export async function getServerSideProps(context) {
   const username = session.user.name;
   const videoIds = currentUser.watchAgainIds;
 
-  console.log("doraemon", videoIds);
-
   const videos =
     videoIds?.map((videoId) => {
       return {
@@ -34,7 +32,6 @@ export async function getServerSideProps(context) {
       };
     }) || [];
 
-  console.log("finaleeeee", videos);
   return {
     props: {
       videos,
