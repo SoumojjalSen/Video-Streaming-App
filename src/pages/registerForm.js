@@ -19,14 +19,17 @@ const Login = () => {
   const router = useRouter();
 
   const handleEmail = (e) => {
+    e.preventDefault();
     setEmail(e.target.value);
   };
 
   const handleName = (e) => {
+    e.preventDefault();
     setName(e.target.value);
   };
 
   const handlePassword = (e) => {
+    e.preventDefault();
     setPassword(e.target.value);
   };
 

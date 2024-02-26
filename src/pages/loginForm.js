@@ -24,7 +24,7 @@ const Login = () => {
   };
 
   const handleOnChangePassword = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     setPassword(e.target.value);
   };
 
